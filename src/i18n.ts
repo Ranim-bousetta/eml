@@ -154,6 +154,7 @@ const resources = {
         registerNow: "Register Now",
         volunteer: "Volunteer",
         donate: "Donate",
+        getInTouch: "Get in Touch",
         contact: "Contact",
         rights: "All rights reserved.",
         arabicTagline: "El Media Lab - An independent youth-led media literacy initiative",
@@ -180,6 +181,24 @@ const resources = {
         pastTitleHighlight: "Projects",
         pastTitleSuffix: "Gallery",
         pastIntro: "A look back at the programs and events that have shaped our community.",
+        newTitlePrefix: "New",
+        newTitleHighlight: "Projects",
+        newIntro: "Stay tuned for future training workshops, roundtables, and other events.",
+        testimonialsTitlePrefix: "Workshop",
+        testimonialsTitleHighlight: "Testimonials",
+        testimonialsIntro: "Hear from participants of the media literacy and writing workshops led by Houssem in collaboration with the American Corner.",
+        testimonialsItems: [
+          {
+            quote: "The hands-on workshop led by Houssem was a turning point. It bridged the gap between theoretical media critique and active civic engagement.",
+            name: "Yasmine Belhadj",
+            role: "Participant, American Corner Workshop"
+          },
+          {
+            quote: "We didn't just learn about media literacy; we practiced verified content creation and understood digital rights in our local context.",
+            name: "Ahmed Dridi",
+            role: "Participant, American Corner Workshop"
+          }
+        ],
         modalOutcomes: "Key Outcomes",
         modalOverviewPrefix: "Detailed overview for",
         currentItems: [
@@ -349,6 +368,46 @@ const resources = {
         english: "EN",
         arabic: "AR",
       },
+      contactPage: {
+        title: "Get in Touch",
+        subtitle: "Have a question or want to collaborate? Feel free to reach out to us.",
+        fullName: "Full Name",
+        fullNamePlaceholder: "Enter your full name",
+        email: "Email Address",
+        emailPlaceholder: "Enter your email address",
+        reason: "Reason for Contact",
+        selectReason: "Select a reason",
+        reasonOptions: {
+          general: "General Inquiry",
+          collaboration: "Collaboration Opportunity",
+          participation: "Project Participation",
+          spontaneous: "Spontaneous team application"
+        },
+        message: "Message",
+        messagePlaceholder: "Write your message here...",
+        attachments: "Attachments (optional)",
+        attachmentsHelp: "Upload PDF or JPG files only. Maximum file size: 10-20MB.",
+        submit: "Send Message",
+        submitting: "Sending...",
+        successTitle: "Message Sent!",
+        successBody: "Thank you for reaching out. We have received your message and will get back to you shortly.",
+        errorSize: "File size exceeds the 10-20MB limit.",
+        errorType: "Only PDF and JPG files are allowed."
+      },
+      blogPage: {
+        title: "Our Blog",
+        subtitle: "Academic and research-oriented work from El Media Lab, including articles, presentations, and videos.",
+        searchPlaceholder: "Search articles...",
+        all: "All",
+        articles: "Articles",
+        videos: "Videos",
+        presentations: "Presentations",
+        readTime: "min read",
+        watchTime: "min watch",
+        backToBlog: "Back to Blog",
+        downloadSlides: "Download Presentation Slides",
+        noResults: "No posts found matching your search."
+      },
     },
   },
   ar: {
@@ -500,6 +559,7 @@ const resources = {
         registerNow: "سجل الآن",
         volunteer: "تطوع",
         donate: "تبرع",
+        getInTouch: "تواصل معنا",
         contact: "تواصل معنا",
         rights: "جميع الحقوق محفوظة.",
         arabicTagline: "إل ميديا لاب - مبادرة شبابية مستقلة لمحو الأمية الإعلامية",
@@ -526,6 +586,24 @@ const resources = {
         pastTitleHighlight: "السابقة",
         pastTitleSuffix: "",
         pastIntro: "نظرة على البرامج والفعاليات التي شكّلت مجتمعنا.",
+        newTitlePrefix: "المشاريع",
+        newTitleHighlight: "الجديدة",
+        newIntro: "ترقبوا ورش العمل التدريبية والموائد المستديرة والفعاليات الأخرى في المستقبل.",
+        testimonialsTitlePrefix: "شهادات",
+        testimonialsTitleHighlight: "ورش العمل",
+        testimonialsIntro: "آراء وانطباعات المشاركين في ورش عمل التربية الإعلامية والكتابة التي أشرف عليها حسام بالتعاون مع الركن الأمريكي (American Corner).",
+        testimonialsItems: [
+          {
+            quote: "كانت ورشة العمل العملية التي قادها حسام نقطة تحول بالنسبة لي. لقد جسرت الفجوة بين النقد الإعلامي النظري والمشاركة المدنية الفعالة.",
+            name: "ياسمين بلحاج",
+            role: "مشاركة، ورشة الركن الأمريكي"
+          },
+          {
+            quote: "لم نتعلم فقط عن التربية الإعلامية، بل مارسنا عملياً صناعة المحتوى الموثوق وفهمنا الحقوق الرقمية في سياقنا المحلي.",
+            name: "أحمد الدريدي",
+            role: "مشارك، ورشة الركن الأمريكي"
+          }
+        ],
         modalOutcomes: "أبرز النتائج",
         modalOverviewPrefix: "نظرة تفصيلية على",
         currentItems: [
@@ -694,6 +772,46 @@ const resources = {
         language: "اللغة",
         english: "EN",
         arabic: "AR",
+      },
+      contactPage: {
+        title: "تواصل معنا",
+        subtitle: "لديك سؤال أو ترغب في التعاون؟ لا تتردد في الاتصال بنا.",
+        fullName: "الاسم الكامل",
+        fullNamePlaceholder: "أدخل اسمك الكامل",
+        email: "البريد الإلكتروني",
+        emailPlaceholder: "أدخل بريدك الإلكتروني",
+        reason: "سبب الاتصال",
+        selectReason: "اختر سبباً",
+        reasonOptions: {
+          general: "استفسار عام",
+          collaboration: "فرصة تعاون",
+          participation: "المشاركة في مشروع",
+          spontaneous: "طلب انضمام تلقائي للفريق"
+        },
+        message: "الرسالة",
+        messagePlaceholder: "اكتب رسالتك هنا...",
+        attachments: "المرفقات (اختياري)",
+        attachmentsHelp: "تحميل ملفات PDF أو JPG فقط. حجم الملف الأقصى: 10-20 ميجابايت.",
+        submit: "إرسال الرسالة",
+        submitting: "جاري الإرسال...",
+        successTitle: "تم إرسال الرسالة!",
+        successBody: "شكراً لتواصلك معنا. لقد استلمنا رسالتك وسنرد عليك في أقرب وقت ممكن.",
+        errorSize: "حجم الملف يتجاوز الحد المسموح به (10-20 ميجابايت).",
+        errorType: "يُسمح فقط بملفات PDF و JPG."
+      },
+      blogPage: {
+        title: "مدونتنا",
+        subtitle: "الأعمال الأكاديمية والبحثية من إل ميديا لاب، بما في ذلك المقالات والعروض التقديمية ومقاطع الفيديو.",
+        searchPlaceholder: "البحث في المقالات...",
+        all: "الكل",
+        articles: "مقالات",
+        videos: "فيديو",
+        presentations: "عروض تقديمية",
+        readTime: "دقائق قراءة",
+        watchTime: "دقائق مشاهدة",
+        backToBlog: "العودة إلى المدونة",
+        downloadSlides: "تحميل العرض التقديمي",
+        noResults: "لم يتم العثور على منشورات تطابق بحثك."
       },
     },
   },

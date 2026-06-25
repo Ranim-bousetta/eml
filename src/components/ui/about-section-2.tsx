@@ -85,7 +85,7 @@ export default function AboutSection2() {
               </TimelineContent>
             </TimelineContent>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-end">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-start">
               <TimelineContent
                 as="a"
                 href="#about-details"

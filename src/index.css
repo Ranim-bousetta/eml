@@ -98,3 +98,22 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+
+@keyframes marquee-horizontal {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-horizontal {
+  display: flex;
+  width: max-content;
+  animation: marquee-horizontal 30s linear infinite;
+}
+
+.animate-marquee-horizontal:hover {
+  animation-play-state: paused;
+}

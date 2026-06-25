@@ -34,8 +34,6 @@ type PastProject = {
   coverImage?: string;
 };
 
-const GOOGLE_SHEETS_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
-
 const Projects = () => {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
@@ -160,31 +158,11 @@ const Projects = () => {
         },
       ];
 
-  const [form, setForm] = useState({ name: "", email: "", project: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
   const [selectedPastProject, setSelectedPastProject] = useState<PastProject | null>(null);
   const projectIcons = {
     book: BookOpen,
     globe: Globe,
     users: Users,
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("entry.1", form.name);
-    formData.append("entry.2", form.email);
-    formData.append("entry.3", form.project);
-    formData.append("entry.4", form.message);
-
-    fetch(GOOGLE_SHEETS_URL, {
-      method: "POST",
-      body: formData,
-      mode: "no-cors",
-    }).then(() => {
-      setSubmitted(true);
-      setForm({ name: "", email: "", project: "", message: "" });
-    });
   };
 
   return (
@@ -204,136 +182,62 @@ const Projects = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-16">
               {currentProjects.map((p) => {
                 const ProjectIcon = projectIcons[p.icon];
-                return (
-                <div key={p.title} className="bg-cream rounded-2xl p-8 border border-border hover:shadow-lg transition-all hover:-translate-y-1">
-                  <ProjectIcon className="text-primary mb-4" size={32} />
-                  <span className="inline-block bg-wattle/20 text-jungle font-heading text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-3">
-                    {p.status}
-                  </span>
-                  <h3 className="font-heading text-xl text-foreground mb-3">{p.title}</h3>
-                  <p className="text-muted-foreground font-body text-sm leading-relaxed">{p.description}</p>
-                </div>
-              )})}
-            </div>
-          </div>
-        </section>
-        */}
-
-        {/* Past Projects Gallery */}
-        <section className="py-20 bg-primary/5">
-          <div className="container">
-            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-4">
-              {t("projectsPage.pastTitlePrefix")} <span className="text-secondary">{t("projectsPage.pastTitleHighlight")}</span>{" "}
-              {t("projectsPage.pastTitleSuffix")}
+                  {/* New Projects Section */}
+        <section className="py-16 bg-cream border-t border-border/40">
+          <div className="container text-center max-w-2xl">
+            <h2 className="font-heading text-3xl text-foreground mb-4">
+              {t("projectsPage.newTitlePrefix")} <span className="text-primary">{t("projectsPage.newTitleHighlight")}</span>
             </h2>
-            <p className="text-muted-foreground font-body max-w-lg mb-12">
-              {t("projectsPage.pastIntro")}
+            <div className="w-12 h-1 bg-primary mx-auto rounded-full mb-6" />
+            <p className="text-muted-foreground font-body text-lg leading-relaxed">
+              {t("projectsPage.newIntro")}
             </p>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {pastProjects.map((p) => (
-                <button
-                  key={p.title}
-                  type="button"
-                  onClick={() => setSelectedPastProject(p)}
-                  className={`group relative overflow-hidden rounded-2xl aspect-[4/3] flex flex-col justify-end text-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
-                >
-                  {p.coverImage ? (
-                    <img src={p.coverImage} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  ) : (
-                    <div className={`absolute inset-0 ${p.color}`} />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  
-                  <div className="relative p-6 md:p-8 text-white">
-                    <Camera className="mb-2 opacity-80" size={20} />
-                    <span className="text-xs uppercase tracking-wider opacity-80 font-heading">{p.category}</span>
-                    <h3 className="font-heading text-lg md:text-xl mt-1">{p.title}</h3>
-                  </div>
-                </button>
-              ))}
-            </div>
           </div>
         </section>
 
-        {/* Registration Form (Contact Form) */}
-        <section id="contact-form" className="py-20">
+        {/* Workshop Testimonials Section */}
+        <section id="testimonials" className="py-20 bg-primary/5 border-t border-border/40 scroll-mt-20">
           <div className="container">
-            <div className="max-w-2xl mx-auto">
-              <div className="bg-primary/5 rounded-2xl p-8 md:p-12 border border-border">
-                <h2 className="font-heading text-2xl md:text-3xl text-foreground mb-2">
-                  {t("projectsPage.registerTitle")}
-                </h2>
-                <p className="text-muted-foreground font-body mb-8">
-                  {t("projectsPage.registerIntro")}
-                </p>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-4">
+                {t("projectsPage.testimonialsTitlePrefix")} <span className="text-secondary">{t("projectsPage.testimonialsTitleHighlight")}</span>
+              </h2>
+              <p className="text-muted-foreground font-body leading-relaxed">
+                {t("projectsPage.testimonialsIntro")}
+              </p>
+            </div>
 
-                {submitted ? (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-wattle/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <ArrowRight className="text-primary" size={24} />
+            <div className="grid lg:grid-cols-12 gap-12 items-center">
+              {/* Video Player Box */}
+              <div className="lg:col-span-6 relative rounded-3xl overflow-hidden aspect-video shadow-lg bg-black border border-border/50 group">
+                <video
+                  src="https://assets.mixkit.co/videos/preview/mixkit-mentoring-a-student-in-a-university-library-43306-large.mp4"
+                  className="w-full h-full object-cover"
+                  controls
+                  playsInline
+                  poster="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80"
+                />
+              </div>
+
+              {/* Written Testimonials Grid */}
+              <div className="lg:col-span-6 space-y-6">
+                {((t("projectsPage.testimonialsItems", { returnObjects: true }) as any[]) || []).map((testi, idx) => (
+                  <div key={idx} className="bg-cream border border-border/80 rounded-2xl p-6 md:p-8 shadow-sm relative hover:shadow-md transition-shadow duration-300">
+                    <span className="absolute top-4 right-6 text-6xl text-secondary/15 font-serif select-none">“</span>
+                    <p className="font-body text-foreground/80 text-base md:text-lg leading-relaxed mb-4 relative z-10">
+                      "{testi.quote}"
+                    </p>
+                    <div className="flex items-center gap-3 border-t border-border/40 pt-4">
+                      <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center font-heading text-secondary font-bold text-sm">
+                        {testi.name.charAt(0)}
+                      </div>
+                      <div>
+                        <h4 className="font-heading text-sm font-semibold text-foreground">{testi.name}</h4>
+                        <p className="font-body text-xs text-muted-foreground">{testi.role}</p>
+                      </div>
                     </div>
-                    <h3 className="font-heading text-xl text-foreground mb-2">{t("projectsPage.thanksTitle")}</h3>
-                    <p className="text-muted-foreground font-body">{t("projectsPage.thanksBody")}</p>
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid md:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block font-heading text-sm text-foreground mb-1.5">{t("projectsPage.fullName")}</label>
-                        <input
-                          type="text"
-                          required
-                          value={form.name}
-                          onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          className="w-full px-4 py-3 rounded-lg border border-border bg-cream font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                          placeholder={t("projectsPage.fullNamePlaceholder")}
-                        />
-                      </div>
-                      <div>
-                        <label className="block font-heading text-sm text-foreground mb-1.5">{t("projectsPage.email")}</label>
-                        <input
-                          type="email"
-                          required
-                          value={form.email}
-                          onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-lg border border-border bg-cream font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                          placeholder={t("projectsPage.emailPlaceholder")}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block font-heading text-sm text-foreground mb-1.5">{t("projectsPage.projectInterest")}</label>
-                      <select
-                        required
-                        value={form.project}
-                        onChange={(e) => setForm({ ...form, project: e.target.value })}
-                        className="w-full px-4 py-3 rounded-lg border border-border bg-cream font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                      >
-                        <option value="">{t("projectsPage.selectProject")}</option>
-                        {currentProjects.map((p) => (
-                          <option key={p.title} value={p.title}>{p.title}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block font-heading text-sm text-foreground mb-1.5">{t("projectsPage.message")}</label>
-                      <textarea
-                        rows={3}
-                        value={form.message}
-                        onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        className="w-full px-4 py-3 rounded-lg border border-border bg-cream font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
-                        placeholder={t("projectsPage.messagePlaceholder")}
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full bg-primary text-primary-foreground font-heading text-sm py-3 rounded-full hover:bg-primary/90 transition-colors"
-                    >
-                      {t("projectsPage.submit")}
-                    </button>
-                  </form>
-                )}
+                ))}
               </div>
             </div>
           </div>

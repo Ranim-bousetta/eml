@@ -36,7 +36,7 @@ const Footer = () => {
               <a href="/#about" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.aboutUs")}</a>
               <Link to="/projects" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.projects")}</Link>
               <a href="/#partners" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.partners")}</a>
-              <a href="/#testimonials" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.testimonials")}</a>
+              <Link to="/projects#testimonials" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.testimonials")}</Link>
             </div>
           </motion.div>
 
@@ -46,11 +46,11 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.16 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <h4 className="font-heading text-sm uppercase tracking-wider mb-4 text-aqua">{t("footer.getInvolved")}</h4>
-            <div className="space-y-2">
-              <Link to="/projects" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.registerNow")}</Link>
-              <a href="#" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.volunteer")}</a>
-              <a href="#" className="block text-cream/60 hover:text-cream text-sm font-body transition-colors">{t("footer.donate")}</a>
+            <h4 className="font-heading text-sm uppercase tracking-wider mb-4 text-aqua">{t("footer.getInTouch")}</h4>
+            <div className="pt-1">
+              <Link to="/contact" className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/95 font-heading text-sm px-6 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md active:scale-95 text-center">
+                {t("footer.getInTouch")}
+              </Link>
             </div>
           </motion.div>
 

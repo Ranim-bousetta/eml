@@ -11,8 +11,9 @@ const Navbar = () => {
     { label: t("nav.home"), href: "/" },
     { label: t("nav.about"), href: "/#about" },
     { label: t("nav.projects"), href: "/projects" },
-    // { label: t("nav.partners"), href: "/#partners" },
-    // { label: t("nav.testimonials"), href: "/#testimonials" },
+    { label: t("nav.partners"), href: "/#partners" },
+    { label: t("nav.testimonials"), href: "/projects#testimonials" },
+    { label: t("blogPage.title"), href: "/blog" },
   ];
 
   return (
@@ -34,7 +35,7 @@ const Navbar = () => {
             </a>
           ))}
           <Link
-            to="/projects#contact-form"
+            to="/contact"
             className="bg-primary text-primary-foreground font-heading text-sm px-6 py-2.5 rounded-full hover:bg-primary/90 transition-colors"
           >
             {t("nav.getInvolved")}
@@ -85,7 +86,7 @@ const Navbar = () => {
             </a>
           ))}
           <Link
-            to="/projects#contact-form"
+            to="/contact"
             onClick={() => setOpen(false)}
             className="mt-2 inline-block bg-primary text-primary-foreground font-heading text-sm px-6 py-2.5 rounded-full"
           >
