@@ -67,7 +67,7 @@ const Hero = () => {
           <img
             src={heroImg}
             alt={t("hero.imageAlt")}
-            className="relative z-10 w-full max-w-lg mx-auto scale-110 md:scale-125 transition-transform duration-700 hover:scale-[1.3]"
+            className="relative z-15 w-full max-w-lg mx-auto scale-110 md:scale-125 transition-transform duration-700 hover:scale-[1.3]"
           />
         </motion.div>
       </div>

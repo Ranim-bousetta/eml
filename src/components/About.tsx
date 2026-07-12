@@ -98,16 +98,64 @@ const About = () => {
               <h3 className="font-heading text-3xl text-center mb-12">
                 {t("about.howWeDoIt")}
               </h3>
-              <div className="grid md:grid-cols-3 gap-12">
-                {values.map((v, idx) => (
-                  <div key={idx} className="text-center space-y-4">
-                    <div className="mx-auto w-12 h-12 rounded-full border border-cream/20 flex items-center justify-center text-aqua">
-                      <v.icon size={24} />
-                    </div>
-                    <h4 className="font-heading text-xl">{v.title}</h4>
-                    <p className="font-body text-cream/60 text-sm">{v.desc}</p>
-                  </div>
-                ))}
+              <div className="relative mt-8 mb-4">
+                {/* Horizontal Line for Desktop */}
+                <div className="absolute top-6 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-aqua/20 via-secondary/20 to-lime/20 hidden md:block z-0" />
+                
+                {/* Vertical Line for Mobile */}
+                <div className="absolute left-[23px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-aqua/20 via-secondary/20 to-lime/20 md:hidden z-0" />
+
+                <div className="grid md:grid-cols-4 gap-12 md:gap-6 relative z-10">
+                  {values.map((v, idx) => {
+                    const colors = [
+                      "text-aqua border-aqua/30 bg-aqua/5 group-hover:bg-aqua/20 group-hover:border-aqua group-hover:text-cream shadow-[0_0_15px_rgba(109,200,203,0.1)] group-hover:shadow-[0_0_20px_rgba(109,200,203,0.3)]",
+                      "text-secondary border-secondary/30 bg-secondary/5 group-hover:bg-secondary/20 group-hover:border-secondary group-hover:text-cream shadow-[0_0_15px_rgba(228,110,135,0.1)] group-hover:shadow-[0_0_20px_rgba(228,110,135,0.3)]",
+                      "text-lime border-lime/30 bg-lime/5 group-hover:bg-lime/20 group-hover:border-lime group-hover:text-cream shadow-[0_0_15px_rgba(198,214,53,0.1)] group-hover:shadow-[0_0_20px_rgba(198,214,53,0.3)]",
+                      "text-aqua border-aqua/30 bg-aqua/5 group-hover:bg-aqua/20 group-hover:border-aqua group-hover:text-cream shadow-[0_0_15px_rgba(109,200,203,0.1)] group-hover:shadow-[0_0_20px_rgba(109,200,203,0.3)]",
+                    ];
+                    
+                    const numberColors = [
+                      "bg-aqua/20 text-aqua group-hover:bg-aqua group-hover:text-primary",
+                      "bg-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-primary",
+                      "bg-lime/20 text-lime group-hover:bg-lime group-hover:text-primary",
+                      "bg-aqua/20 text-aqua group-hover:bg-aqua group-hover:text-primary",
+                    ];
+
+                    return (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: idx * 0.15 }}
+                        className="flex flex-row md:flex-col items-start md:items-center text-start md:text-center group cursor-pointer relative"
+                      >
+                        {/* Node Container */}
+                        <div className="flex-shrink-0 relative mr-6 md:mr-0 md:mb-6 z-10">
+                          {/* Circle dot with hover ring */}
+                          <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center backdrop-blur-md transition-all duration-500 transform group-hover:scale-110 ${colors[idx]}`}>
+                            <v.icon size={22} className="transition-transform duration-500 group-hover:rotate-12" />
+                          </div>
+                          
+                          {/* Step number badge */}
+                          <span className={`absolute -top-2 -right-2 text-[10px] font-heading font-bold w-5 h-5 rounded-full flex items-center justify-center border border-cream/10 transition-colors duration-500 ${numberColors[idx]}`}>
+                            {idx + 1}
+                          </span>
+                        </div>
+
+                        {/* Text Content */}
+                        <div className="flex-1 md:px-2 space-y-2">
+                          <h4 className="font-heading text-lg md:text-xl text-cream group-hover:text-white transition-colors duration-300">
+                            {v.title}
+                          </h4>
+                          <p className="font-body text-cream/60 text-xs md:text-sm leading-relaxed transition-all duration-300 group-hover:text-cream/95">
+                            {v.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
               
               <div className="mt-16 pt-16 border-t border-cream/10 text-center">
