@@ -2,12 +2,30 @@ import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
 const partners = [
-  { name: "UNESCO", type: "Culture & Education" },
-  { name: "UNDP", type: "Development" },
-  { name: "British Council", type: "Cultural Relations" },
-  { name: "Goethe-Institut", type: "Language & Culture" },
-  { name: "Open Society Foundations", type: "Human Rights" },
-  { name: "Internews", type: "Media Development" },
+  {
+    name: "The Tomorrow’s Leaders program",
+    subtitle: "Middle East Partnership Initiative (MEPI)",
+  },
+  {
+    name: "The Center for Community Engagement (CCE)",
+    subtitle: "American University of Beirut",
+  },
+  {
+    name: "Amideast Tunisia",
+    subtitle: "Non-Profit International Education",
+  },
+  {
+    name: "The American Corner Tunis",
+    subtitle: "Cultural Center",
+  },
+  {
+    name: "DW Akademie",
+    subtitle: "International Media Development",
+  },
+  {
+    name: "Room2Be",
+    subtitle: "Community & Mentoring Platform",
+  },
 ];
 
 const Partners = () => {
@@ -37,13 +55,13 @@ const Partners = () => {
           {marqueeItems.map((p, idx) => (
             <div
               key={`${p.name}-${idx}`}
-              className="flex flex-col items-center justify-center min-w-[200px] bg-cream border border-border/80 rounded-2xl px-6 py-5 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 transform cursor-default select-none group"
+              className="flex flex-col items-center justify-center min-w-[260px] max-w-[320px] bg-cream border border-border/80 rounded-2xl px-6 py-5 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300 transform cursor-default select-none group text-center"
             >
-              <span className="font-heading text-xl font-extrabold text-foreground/70 group-hover:text-primary transition-colors tracking-tight">
+              <span className="font-heading text-lg font-bold text-foreground/80 group-hover:text-primary transition-colors tracking-tight text-center leading-snug">
                 {p.name}
               </span>
-              <span className="font-body text-[10px] text-muted-foreground uppercase tracking-widest mt-1 opacity-70 group-hover:opacity-100 transition-opacity">
-                {p.type}
+              <span className="font-body text-xs text-muted-foreground font-medium mt-2 opacity-75 group-hover:opacity-100 transition-opacity text-center leading-tight">
+                {p.subtitle}
               </span>
             </div>
           ))}

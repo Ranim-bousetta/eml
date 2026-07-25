@@ -57,7 +57,16 @@ export default function Contact() {
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
 
@@ -67,25 +76,59 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate sending email to elmedialab@gmail.com
-    setTimeout(() => {
-      console.log("Submitting contact request to elmedialab@gmail.com:", {
-        ...formData,
-        attachmentName: attachment ? attachment.name : "None",
-        attachmentSize: attachment ? `${(attachment.size / (1024 * 1024)).toFixed(2)} MB` : "None",
-      });
+    try {
+      let attachmentData = "";
+      let attachmentName = "";
+      let attachmentMimeType = "";
 
+      if (attachment) {
+        attachmentData = await fileToBase64(attachment);
+        attachmentName = attachment.name;
+        attachmentMimeType = attachment.type;
+      }
+
+      const payload = {
+        ...formData,
+        attachmentData,
+        attachmentName,
+        attachmentMimeType,
+      };
+
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzkMtYfd6hu1m50-y-Qk8W2TgwNhxbepZLZ1oB81W1YQBj7atjpPiqm8qZYoqncNaIieg/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const result = await response.json();
+      if (result.status === "success") {
+        setIsSuccess(true);
+        setFormData({
+          name: "",
+          email: "",
+          reason: "",
+          message: "",
+        });
+        setAttachment(null);
+        if (fileInputRef.current) fileInputRef.current.value = "";
+      } else {
+        throw new Error(result.message || "Failed to submit form");
+      }
+    } catch (err: any) {
+      console.error("Form submission error:", err);
+      setErrorMsg(
+        isArabic
+          ? "حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى لاحقاً."
+          : "An error occurred while sending the message. Please try again later."
+      );
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        reason: "",
-        message: "",
-      });
-      setAttachment(null);
-      if (fileInputRef.current) fileInputRef.current.value = "";
-    }, 1500);
+    }
   };
 
   return (

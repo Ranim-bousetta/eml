@@ -197,6 +197,21 @@ const resources = {
             quote: "We didn't just learn about media literacy; we practiced verified content creation and understood digital rights in our local context.",
             name: "Ahmed Dridi",
             role: "Participant, American Corner Workshop"
+          },
+          {
+            quote: "I really enjoyed this experience! I learned so much about graphic design, and I want to thank Houssem for the great explanations and the well-structured presentation",
+            name: "Ahmed F.",
+            role: "Participant, Graphic Design Workshop"
+          },
+          {
+            quote: "The training sessions offered by El Media Lab are a truly valuable asset, I will keep on the lookout for future opportunities",
+            name: "Salma H.",
+            role: "Participant, Workshop"
+          },
+          {
+            quote: "I loved the way Houssem made such a big and complicated topic comprehensible to people with no experience and really tried to help us understand the main goal of graphic design and its basics.",
+            name: "Kmar B.",
+            role: "Participant, Graphic Design Workshop"
           }
         ],
         modalOutcomes: "Key Outcomes",
@@ -602,6 +617,21 @@ const resources = {
             quote: "لم نتعلم فقط عن التربية الإعلامية، بل مارسنا عملياً صناعة المحتوى الموثوق وفهمنا الحقوق الرقمية في سياقنا المحلي.",
             name: "أحمد الدريدي",
             role: "مشارك، ورشة الركن الأمريكي"
+          },
+          {
+            quote: "لقد استمتعت حقاً بهذه التجربة! تعلمت الكثير عن التصميم الجرافيكي، وأود أن أشكر حسام على التفسيرات الرائعة والعرض التقديمي المنظم جيداً",
+            name: "أحمد ف.",
+            role: "مشارك، ورشة عمل التصميم الجرافيكي"
+          },
+          {
+            quote: "إن الدورات التدريبية التي يقدمها إل ميديا لاب هي مكسب قيم حقاً، وسأبقى على اطلاع دائم بانتظار الفرص المستقبلية",
+            name: "سلمى هـ.",
+            role: "مشاركة، ورشة عمل"
+          },
+          {
+            quote: "لقد أحببت الطريقة التي جعل بها حسام موضوعاً كبيراً ومعقداً كهذا مفهوماً للأشخاص الذين ليس لديهم خبرة، وحاول حقاً مساعدتنا في فهم الهدف الرئيسي للتصميم الجرافيكي وأساسياته.",
+            name: "قمر ب.",
+            role: "مشاركة، ورشة عمل التصميم الجرافيكي"
           }
         ],
         modalOutcomes: "أبرز النتائج",
