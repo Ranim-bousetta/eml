@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts, BlogPost } from "@/data/blogPosts";
-import { Search, BookOpen, Video, FileText, Calendar, Clock, ArrowRight } from "lucide-react";
+import { Search, BookOpen, Video, FileText, Calendar, Clock, ArrowRight, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
@@ -134,6 +134,18 @@ export default function Blog() {
                         {isArabic ? post.categoryAr : post.category}
                       </span>
                     </div>
+                    {post.instagramUrl && (
+                      <a
+                        href={post.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        title={isArabic ? "عرض على إنستغرام" : "View on Instagram"}
+                        className="absolute top-4 right-4 bg-gradient-to-tr from-yellow-400 via-rose-500 to-purple-600 text-white p-2 rounded-full shadow-md hover:scale-110 transition-transform"
+                      >
+                        <Instagram size={14} />
+                      </a>
+                    )}
                   </Link>
 
                   {/* Body */}

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogPosts";
-import { ArrowLeft, Calendar, Clock, BookOpen, Video, FileText, Download, FileDown } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, BookOpen, Video, FileText, Download, FileDown, Instagram, ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
 import NotFound from "./NotFound";
 
@@ -126,6 +126,17 @@ export default function BlogDetail() {
               </div>
             </div>
 
+            {/* Featured Cover Image (For non-video posts) */}
+            {post.type !== "video" && post.coverImage && (
+              <div className="relative rounded-3xl overflow-hidden shadow-lg border border-border/50 mb-10 max-h-[500px]">
+                <img
+                  src={post.coverImage}
+                  alt={isArabic ? post.titleAr : post.title}
+                  className="w-full h-full object-cover max-h-[500px]"
+                />
+              </div>
+            )}
+
             {/* Video Player (If post is a video) */}
             {post.type === "video" && post.videoUrl && (
               <div className="relative rounded-3xl overflow-hidden aspect-video shadow-lg bg-black border border-border/50 mb-10">
@@ -137,6 +148,35 @@ export default function BlogDetail() {
             <div className="prose prose-neutral max-w-none text-start text-foreground/90 font-body">
               {renderContent(isArabic ? post.contentAr : post.content)}
             </div>
+
+            {/* Instagram Post Link Banner */}
+            {post.instagramUrl && (
+              <div className="mt-12 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-primary/10 rounded-3xl border border-pink-500/20 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-4 text-start">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-yellow-400 via-rose-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-md">
+                    <Instagram size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-foreground">
+                      {isArabic ? "اقرأ هذا المنشور على إنستغرام" : "View original post on Instagram"}
+                    </h3>
+                    <p className="font-body text-xs text-muted-foreground">
+                      {isArabic ? "انضم إلى النقاش وتفاعل مع المنشور الأصلي على حسابنا الرسمي" : "Join the conversation and view the official post on Instagram"}
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={post.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-heading text-xs md:text-sm px-6 py-3.5 rounded-full transition-all shadow-md shrink-0 active:scale-95 cursor-pointer"
+                >
+                  <Instagram size={16} />
+                  <span>{t("blogPage.viewOnInstagram")}</span>
+                  <ExternalLink size={14} />
+                </a>
+              </div>
+            )}
 
             {/* Slides / PDF Download Box (If post is slides) */}
             {post.type === "slides" && post.pdfUrl && (

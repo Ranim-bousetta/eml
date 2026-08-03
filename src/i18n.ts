@@ -421,7 +421,8 @@ const resources = {
         watchTime: "min watch",
         backToBlog: "Back to Blog",
         downloadSlides: "Download Presentation Slides",
-        noResults: "No posts found matching your search."
+        noResults: "No posts found matching your search.",
+        viewOnInstagram: "View on Instagram"
       },
     },
   },
@@ -841,7 +842,8 @@ const resources = {
         watchTime: "دقائق مشاهدة",
         backToBlog: "العودة إلى المدونة",
         downloadSlides: "تحميل العرض التقديمي",
-        noResults: "لم يتم العثور على منشورات تطابق بحثك."
+        noResults: "لم يتم العثور على منشورات تطابق بحثك.",
+        viewOnInstagram: "عرض على إنستغرام"
       },
     },
   },
