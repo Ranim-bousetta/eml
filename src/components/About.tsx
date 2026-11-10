@@ -67,9 +67,14 @@ const About = () => {
           </div>
 
           <div className="mb-24">
-            <h3 className="font-heading text-3xl text-center text-foreground mb-12">
+            <h3 className="font-heading text-3xl text-center text-foreground mb-4">
               {t("about.whatWeDo")}
             </h3>
+            {t("about.whatWeDoDesc") && (
+              <p className="text-center text-muted-foreground font-body max-w-2xl mx-auto mb-12 text-base md:text-lg leading-relaxed whitespace-pre-line">
+                {t("about.whatWeDoDesc")}
+              </p>
+            )}
             <div className="grid md:grid-cols-3 gap-8">
               {pillars.map((pillar, idx) => (
                 <motion.div
@@ -95,9 +100,14 @@ const About = () => {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/20 blur-[100px] rounded-full" />
             
             <div className="relative z-10">
-              <h3 className="font-heading text-3xl text-center mb-12">
+              <h3 className="font-heading text-3xl text-center mb-4">
                 {t("about.howWeDoIt")}
               </h3>
+              {t("about.howWeDoItDesc") && (
+                <p className="text-center text-cream/80 font-body max-w-2xl mx-auto mb-12 text-base md:text-lg leading-relaxed whitespace-pre-line">
+                  {t("about.howWeDoItDesc")}
+                </p>
+              )}
               <div className="relative mt-8 mb-4">
                 {/* Horizontal Line for Desktop */}
                 <div className="absolute top-6 left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-aqua/20 via-secondary/20 to-lime/20 hidden md:block z-0" />
